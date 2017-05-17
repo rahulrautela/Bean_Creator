@@ -21,14 +21,14 @@ public class create {
       {
           Connection con;
           Class.forName("com.mysql.jdbc.Driver");
-        con= DriverManager.getConnection("jdbc:mysql://localhost:3306/pro","root","root");
+        con= DriverManager.getConnection("jdbc:mysql://localhost:3306/database_name","username","password");
       
         Statement st= con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs = st.executeQuery("select * from dept");
+        ResultSet rs = st.executeQuery("select * from tableName");
         ResultSetMetaData rsmd = rs.getMetaData();
         int col= rsmd.getColumnCount();
     		
-    		File file =new File("d:\\Beans.java");
+    		File file =new File("FILEPATH.java");   //d:\Bean.java
     		
     		//if file doesnt exists, then create it
     		if(!file.exists()){
@@ -36,7 +36,7 @@ public class create {
     		}
     		
     		
-    		FileWriter fw = new FileWriter("d:\\Beans.java");
+    		FileWriter fw = new FileWriter("FILEPATH.java");	 //d:\Bean.java
                // String data = " public class Beans" + fileWritter.write("\n") + "{";
     	        BufferedWriter bw = new BufferedWriter(fw);
     	        bw.write(" public class Beans {");
